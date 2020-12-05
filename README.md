@@ -3,7 +3,7 @@
   ---
   This is a note taking application that uses a server and utilizes an Express backend that saves and retrieves data from a JSON file.
   
-  Inside this application routes were used to ensure correct navigation and the read and create new files.
+  Inside this application routes were used to ensure correct navigation and to read and create new files.
 
   ## Table of Contents 
   --- 
