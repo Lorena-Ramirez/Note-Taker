@@ -33,6 +33,26 @@ module.exports = function(app) {
     });  
   });
 
-  
- 
+  //Deleting
+  app.delete("/api/notes/:id", function(req, res) {
+    var id = req.params.id;
+
+    var atID = (element) => element.id === id;
+    var deleteNote = savedNotes.findIndex(atID);
+
+    savedNotes.splice(deleteNote, 1);
+    
+    // Write a JSON file so update with new data
+    fs.writeFile("./db/db.json", JSON.stringify(savedNotes),(err) => {
+      if (err) {
+        console.log(err); 
+        res.sendStatus(404);
+      } 
+      else { 
+          console.log("Success!");
+          res.sendStatus(200);
+      }
+    });  
+
+  });
 };
