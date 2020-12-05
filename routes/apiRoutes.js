@@ -35,11 +35,14 @@ module.exports = function(app) {
 
   //Deleting
   app.delete("/api/notes/:id", function(req, res) {
+    //grabs query param
     var id = req.params.id;
 
+    //finds element at ID
     var atID = (element) => element.id === id;
     var deleteNote = savedNotes.findIndex(atID);
 
+    //deletes element from the array
     savedNotes.splice(deleteNote, 1);
     
     // Write a JSON file so update with new data
